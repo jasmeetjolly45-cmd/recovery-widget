@@ -1,0 +1,437 @@
+/* ==========================
+   RESET & BASE STYLING
+========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #111a14;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #f8f4ec;
+    overflow-x: hidden;
+}
+
+/* ==========================
+   FRAMED BACKGROUND CONTAINER
+========================== */
+.card-frame {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 1100px;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(220, 210, 190, 0.25); /* Signature beige outer border */
+}
+
+/* ==========================
+   DASHBOARD LAYOUT
+========================== */
+.dashboard-container {
+    background-color: rgba(14, 30, 20, 0.92);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(135, 150, 135, 0.15);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 32px;
+}
+
+/* ==========================
+   LEFT COLUMN
+========================== */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.header-icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(135, 150, 135, 0.12);
+    border: 1px solid rgba(135, 150, 135, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a3b899;
+    flex-shrink: 0;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-text-group h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #f8f4ec;
+}
+
+.title-leaf {
+    font-size: 14px;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #d1c7b7;
+    margin-top: 2px;
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(135, 150, 135, 0.15);
+    margin: 20px 0;
+}
+
+/* ==========================
+   MODE SELECTOR
+========================== */
+.mode-selector-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.selector-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #d1c7b7;
+    margin-bottom: 10px;
+}
+
+.segmented-control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background: rgba(10, 22, 14, 0.6);
+    padding: 5px;
+    border-radius: 30px;
+    border: 1px solid rgba(135, 150, 135, 0.2);
+}
+
+.mode-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #f8f4ec;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+    background: #6e8863;
+    color: #f8f4ec;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.mode-btn:hover:not(.active) {
+    background: rgba(135, 150, 135, 0.1);
+}
+
+/* ==========================
+   MAIN TIMER DISPLAY
+========================== */
+.timer-display-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.circular-progress-wrapper {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-ring {
+    position: absolute;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle-bg {
+    fill: none;
+    stroke: rgba(135, 150, 135, 0.15);
+    stroke-width: 4;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: #879b7d;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.timer-inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.time-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f8f4ec;
+    line-height: 1;
+}
+
+.instruction-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #f8f4ec;
+    margin-top: 4px;
+}
+
+.instruction-sub {
+    font-size: 12px;
+    color: #d1c7b7;
+    margin-top: 2px;
+}
+
+.center-mode-icon {
+    font-size: 16px;
+    margin-top: 6px;
+    opacity: 0.85;
+}
+
+/* ==========================
+   PROGRESS BAR SECTIONS
+========================== */
+.phase-progress-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.segment-track {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+.progress-segment {
+    width: 14px;
+    height: 6px;
+    background: rgba(135, 150, 135, 0.2);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.progress-segment.active {
+    background: #879b7d;
+    box-shadow: 0 0 6px rgba(135, 150, 135, 0.5);
+}
+
+.phase-labels {
+    font-size: 11px;
+    color: #d1c7b7;
+    display: flex;
+    gap: 8px;
+}
+
+.phase-labels span.highlight {
+    color: #a3b899;
+    font-weight: 600;
+}
+
+/* ==========================
+   ACTION BUTTON & FOOTER
+========================== */
+.action-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.primary-action-btn {
+    background: #6e8863;
+    color: #f8f4ec;
+    border: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 260px;
+    padding: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.primary-action-btn:hover {
+    background: #7d9672;
+    transform: translateY(-1px);
+}
+
+.footer-motivation {
+    text-align: center;
+    font-size: 12px;
+    color: #d1c7b7;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+}
+
+/* ==========================
+   RIGHT COLUMN CARDS
+========================== */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rec-card {
+    background: rgba(18, 38, 25, 0.65);
+    border: 1px solid rgba(135, 150, 135, 0.18);
+    border-radius: 14px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rec-card:hover {
+    border-color: rgba(135, 150, 135, 0.35);
+}
+
+.rec-card.active-card {
+    border-color: rgba(135, 150, 135, 0.45);
+    background: rgba(22, 46, 30, 0.85);
+}
+
+.card-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.card-icon {
+    font-size: 18px;
+    padding-top: 2px;
+}
+
+.card-title-group h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #f8f4ec;
+}
+
+.card-title-group p {
+    font-size: 12px;
+    color: #d1c7b7;
+    line-height: 1.4;
+    margin-top: 2px;
+}
+
+.card-duration-section {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(135, 150, 135, 0.12);
+}
+
+.duration-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #a3b899;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.duration-btns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.dur-btn {
+    background: rgba(10, 22, 14, 0.4);
+    border: 1px solid rgba(135, 150, 135, 0.15);
+    color: #f8f4ec;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dur-btn.active {
+    background: #6e8863;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dur-btn:hover:not(.active) {
+    background: rgba(135, 150, 135, 0.15);
+}
+
+.tip-card {
+    cursor: default;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+@media (max-width: 900px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    .card-frame {
+        padding: 12px;
+    }
+}
