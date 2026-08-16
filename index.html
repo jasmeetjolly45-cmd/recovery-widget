@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Recovery Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Framed Background Container with Beige Outer Border Frame -->
+    <div class="card-frame">
+        
+        <!-- Main Dashboard Container -->
+        <div class="dashboard-container">
+            
+            <!-- LEFT COLUMN: Timer & Controls -->
+            <div class="left-column">
+                
+                <!-- Header -->
+                <div class="header-section">
+                    <div class="header-icon-circle">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 1 7.54 16.63M12 12v10m-4-4l4 4 4-4"/></svg>
+                    </div>
+                    <div class="header-text-group">
+                        <div class="title-row">
+                            <h1>Recovery Mode</h1>
+                            <span class="title-leaf">🌿</span>
+                        </div>
+                        <p class="subtitle">Slow down. Let your body recover.</p>
+                    </div>
+                </div>
+
+                <!-- Subtle Horizontal Divider -->
+                <div class="section-divider"></div>
+
+                <!-- Mode Selector -->
+                <div class="mode-selector-wrapper">
+                    <div class="selector-label">Choose your reset</div>
+                    <div class="segmented-control">
+                        <button class="mode-btn active" data-mode="breathe" onclick="switchMode('breathe')">
+                            <span class="btn-icon">🫁</span> Breathe
+                        </button>
+                        <button class="mode-btn" data-mode="stretch" onclick="switchMode('stretch')">
+                            <span class="btn-icon">🧘</span> Stretch
+                        </button>
+                        <button class="mode-btn" data-mode="relax" onclick="switchMode('relax')">
+                            <span class="btn-icon">🌙</span> Relax
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Timer Display Area -->
+                <div class="timer-display-area">
+                    <div class="circular-progress-wrapper">
+                        <!-- SVG Ring Overlay -->
+                        <svg class="progress-ring" width="220" height="220">
+                            <circle class="progress-ring-circle-bg" cx="110" cy="110" r="96"></circle>
+                            <circle class="progress-ring-circle" id="progressRing" cx="110" cy="110" r="96" stroke-dasharray="603" stroke-dashoffset="0"></circle>
+                        </svg>
+                        
+                        <div class="timer-inner-content">
+                            <div class="time-text" id="timerDisplay">03:00</div>
+                            <div class="instruction-main" id="instructionMain">Inhale</div>
+                            <div class="instruction-sub" id="instructionSub">Breathe in slowly...</div>
+                            <div class="center-mode-icon" id="centerIcon">🫁</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase Progress Bar (For Breathing or sequence steps) -->
+                <div class="phase-progress-section" id="phaseProgressSection">
+                    <div class="segment-track" id="segmentTrack">
+                        <!-- Dynamically populated via JS -->
+                    </div>
+                    <div class="phase-labels" id="phaseLabels">
+                        <span class="active-phase-label">4s Inhale</span>
+                        <span>•</span>
+                        <span>4s Hold</span>
+                        <span>•</span>
+                        <span>4s Exhale</span>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="action-btn-wrapper">
+                    <button class="primary-action-btn" id="startBtn" onclick="toggleTimer()">
+                        ▶ Start
+                    </button>
+                </div>
+
+                <!-- Bottom Motivational Text -->
+                <div class="footer-motivation">
+                    Recovery is part of the progress. ♡
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Recovery Cards -->
+            <div class="right-column">
+                
+                <!-- BREATHE CARD -->
+                <div class="rec-card active-card" id="cardBreathe" onclick="selectCardMode('breathe')">
+                    <div class="card-header-row">
+                        <div class="card-icon">🫁</div>
+                        <div class="card-title-group">
+                            <h3>BREATHE</h3>
+                            <p>4-4-4 Breathing<br>4 sec inhale → 4 sec hold → 4 sec exhale</p>
+                        </div>
+                    </div>
+                    <div class="card-duration-section" onclick="event.stopPropagation()">
+                        <span class="duration-label">DURATION</span>
+                        <div class="duration-btns">
+                            <button class="dur-btn" data-dur="60" onclick="setDuration('breathe', 60, this)">1 MIN</button>
+                            <button class="dur-btn active" data-dur="180" onclick="setDuration('breathe', 180, this)">3 MIN</button>
+                            <button class="dur-btn" data-dur="300" onclick="setDuration('breathe', 300, this)">5 MIN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STRETCH CARD -->
+                <div class="rec-card" id="cardStretch" onclick="selectCardMode('stretch')">
+                    <div class="card-header-row">
+                        <div class="card-icon">🧘</div>
+                        <div class="card-title-group">
+                            <h3>STRETCH</h3>
+                            <p>Guided stretches to release tension and improve mobility.</p>
+                        </div>
+                    </div>
+                    <div class="card-duration-section" onclick="event.stopPropagation()">
+                        <span class="duration-label">DURATION</span>
+                        <div class="duration-btns">
+                            <button class="dur-btn" data-dur="300" onclick="setDuration('stretch', 300, this)">5 MIN</button>
+                            <button class="dur-btn active" data-dur="600" onclick="setDuration('stretch', 600, this)">10 MIN</button>
+                            <button class="dur-btn" data-dur="900" onclick="setDuration('stretch', 900, this)">15 MIN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RELAX CARD -->
+                <div class="rec-card" id="cardRelax" onclick="selectCardMode('relax')">
+                    <div class="card-header-row">
+                        <div class="card-icon">🌙</div>
+                        <div class="card-title-group">
+                            <h3>RELAX</h3>
+                            <p>Guided relaxation to calm your mind and body.</p>
+                        </div>
+                    </div>
+                    <div class="card-duration-section" onclick="event.stopPropagation()">
+                        <span class="duration-label">DURATION</span>
+                        <div class="duration-btns">
+                            <button class="dur-btn" data-dur="120" onclick="setDuration('relax', 120, this)">2 MIN</button>
+                            <button class="dur-btn active" data-dur="180" onclick="setDuration('relax', 180, this)">3 MIN</button>
+                            <button class="dur-btn" data-dur="300" onclick="setDuration('relax', 300, this)">5 MIN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIP CARD -->
+                <div class="rec-card tip-card">
+                    <div class="card-header-row">
+                        <div class="card-icon">🌿</div>
+                        <div class="card-title-group">
+                            <h3>TIP</h3>
+                            <p>Even a few minutes of mindful recovery can make a big difference.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
