@@ -8,7 +8,7 @@
 }
 
 html, body {
-    background-color: #111a14;
+    background-color: #ffffff !important;
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -17,6 +17,12 @@ html, body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: #f8f4ec;
     overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: #191919 !important;
+    }
 }
 
 /* ==========================
@@ -28,29 +34,39 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 1100px;
-    padding: 24px;
+    max-width: 520px;
+    aspect-ratio: 520 / 380;
+    padding: 28px; /* Generous spacing between widget and outer edge */
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(220, 210, 190, 0.25); /* Signature beige outer border */
 }
 
 /* ==========================
-   DASHBOARD LAYOUT
+   DASHBOARD LAYOUT (2-Column Compact)
 ========================== */
 .dashboard-container {
-    background-color: rgba(14, 30, 20, 0.92);
-    backdrop-filter: blur(12px);
+    background-color: #10281b; /* Exact rich forest green */
     width: 100%;
-    border-radius: 16px;
-    border: 1px solid rgba(135, 150, 135, 0.15);
-    padding: 32px;
+    height: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 18px;
     display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+/* Scrollbar styling for inner container if needed */
+.dashboard-container::-webkit-scrollbar {
+    width: 4px;
+}
+.dashboard-container::-webkit-scrollbar-thumb {
+    background: rgba(135, 150, 135, 0.2);
+    border-radius: 4px;
 }
 
 /* ==========================
@@ -65,12 +81,12 @@ html, body {
 .header-section {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 10px;
 }
 
 .header-icon-circle {
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: rgba(135, 150, 135, 0.12);
     border: 1px solid rgba(135, 150, 135, 0.25);
@@ -84,34 +100,35 @@ html, body {
 .title-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .header-text-group h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.5px;
     color: #f8f4ec;
+    line-height: 1.1;
 }
 
 .title-leaf {
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 15px;
+    font-size: 12px;
     color: #d1c7b7;
-    margin-top: 2px;
+    margin-top: 1px;
 }
 
 .section-divider {
     width: 100%;
     height: 1px;
     background: rgba(135, 150, 135, 0.15);
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 /* ==========================
@@ -119,24 +136,24 @@ html, body {
 ========================== */
 .mode-selector-wrapper {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .selector-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-size: 13px;
     font-style: italic;
     color: #d1c7b7;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .segmented-control {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 4px;
     background: rgba(10, 22, 14, 0.6);
-    padding: 5px;
-    border-radius: 30px;
+    padding: 3px;
+    border-radius: 20px;
     border: 1px solid rgba(135, 150, 135, 0.2);
 }
 
@@ -145,15 +162,15 @@ html, body {
     border: 1px solid transparent;
     color: #f8f4ec;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 500;
-    padding: 10px;
-    border-radius: 24px;
+    padding: 6px 4px;
+    border-radius: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     transition: all 0.2s ease;
 }
 
@@ -174,13 +191,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 4px 0;
 }
 
 .circular-progress-wrapper {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,19 +206,28 @@ html, body {
 .progress-ring {
     position: absolute;
     transform: rotate(-90deg);
+    width: 150px;
+    height: 150px;
 }
 
 .progress-ring-circle-bg {
     fill: none;
     stroke: rgba(135, 150, 135, 0.15);
-    stroke-width: 4;
+    stroke-width: 3.5;
+    cx: 75;
+    cy: 75;
+    r: 64;
 }
 
 .progress-ring-circle {
     fill: none;
     stroke: #879b7d;
-    stroke-width: 5;
+    stroke-width: 4;
     stroke-linecap: round;
+    cx: 75;
+    cy: 75;
+    r: 64;
+    stroke-dasharray: 402;
     transition: stroke-dashoffset 0.5s ease;
 }
 
@@ -215,30 +241,30 @@ html, body {
 
 .time-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 46px;
+    font-size: 32px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: #f8f4ec;
     line-height: 1;
 }
 
 .instruction-main {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600;
     color: #f8f4ec;
-    margin-top: 4px;
-}
-
-.instruction-sub {
-    font-size: 12px;
-    color: #d1c7b7;
     margin-top: 2px;
 }
 
+.instruction-sub {
+    font-size: 10px;
+    color: #d1c7b7;
+    margin-top: 1px;
+}
+
 .center-mode-icon {
-    font-size: 16px;
-    margin-top: 6px;
+    font-size: 12px;
+    margin-top: 3px;
     opacity: 0.85;
 }
 
@@ -249,33 +275,33 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
+    margin: 6px 0;
 }
 
 .segment-track {
     display: flex;
-    gap: 5px;
-    margin-bottom: 6px;
+    gap: 3px;
+    margin-bottom: 4px;
 }
 
 .progress-segment {
-    width: 14px;
-    height: 6px;
+    width: 10px;
+    height: 4px;
     background: rgba(135, 150, 135, 0.2);
-    border-radius: 3px;
+    border-radius: 2px;
     transition: background 0.3s ease;
 }
 
 .progress-segment.active {
     background: #879b7d;
-    box-shadow: 0 0 6px rgba(135, 150, 135, 0.5);
+    box-shadow: 0 0 4px rgba(135, 150, 135, 0.5);
 }
 
 .phase-labels {
-    font-size: 11px;
+    font-size: 9px;
     color: #d1c7b7;
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 .phase-labels span.highlight {
@@ -289,7 +315,7 @@ html, body {
 .action-btn-wrapper {
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 6px 0;
 }
 
 .primary-action-btn {
@@ -297,16 +323,16 @@ html, body {
     color: #f8f4ec;
     border: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     width: 100%;
-    max-width: 260px;
-    padding: 14px;
-    border-radius: 30px;
+    max-width: 200px;
+    padding: 8px;
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease;
 }
 
@@ -317,10 +343,10 @@ html, body {
 
 .footer-motivation {
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     color: #d1c7b7;
-    letter-spacing: 0.5px;
-    margin-top: 5px;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
 }
 
 /* ==========================
@@ -329,14 +355,14 @@ html, body {
 .right-column {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
 }
 
 .rec-card {
     background: rgba(18, 38, 25, 0.65);
     border: 1px solid rgba(135, 150, 135, 0.18);
-    border-radius: 14px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 10px 12px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -353,48 +379,48 @@ html, body {
 .card-header-row {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 8px;
 }
 
 .card-icon {
-    font-size: 18px;
-    padding-top: 2px;
+    font-size: 14px;
+    padding-top: 1px;
 }
 
 .card-title-group h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     color: #f8f4ec;
 }
 
 .card-title-group p {
-    font-size: 12px;
+    font-size: 10px;
     color: #d1c7b7;
-    line-height: 1.4;
-    margin-top: 2px;
+    line-height: 1.3;
+    margin-top: 1px;
 }
 
 .card-duration-section {
-    margin-top: 12px;
-    padding-top: 10px;
+    margin-top: 8px;
+    padding-top: 6px;
     border-top: 1px solid rgba(135, 150, 135, 0.12);
 }
 
 .duration-label {
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     color: #a3b899;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .duration-btns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 4px;
 }
 
 .dur-btn {
@@ -402,10 +428,10 @@ html, body {
     border: 1px solid rgba(135, 150, 135, 0.15);
     color: #f8f4ec;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 500;
-    padding: 6px;
-    border-radius: 8px;
+    padding: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -424,14 +450,17 @@ html, body {
 }
 
 /* ==========================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (Mobile Stack)
 ========================== */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+    .card-frame {
+        max-width: 100%;
+        padding: 12px;
+        aspect-ratio: auto;
+        min-height: auto;
+    }
     .dashboard-container {
         grid-template-columns: 1fr;
-        padding: 20px;
-    }
-    .card-frame {
-        padding: 12px;
+        padding: 14px;
     }
 }
