@@ -26,7 +26,7 @@ html, body {
 }
 
 /* ==========================
-   FRAMED BACKGROUND CONTAINER
+   FRAMED BACKGROUND CONTAINER (Thicker Border Space)
 ========================== */
 .card-frame {
     background-image: url('background.png');
@@ -34,10 +34,10 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 520px;
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    max-width: 560px; /* Expanded slightly to give outer border room */
+    padding: 44px;    /* Increased padding so beige frame is clearly visible */
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,10 +51,10 @@ html, body {
     width: 100%;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 16px 18px;
+    padding: 18px 20px;
     display: grid;
     grid-template-columns: 1.25fr 1fr;
-    gap: 16px;
+    gap: 18px;
 }
 
 /* ==========================
@@ -124,7 +124,7 @@ html, body {
 ========================== */
 .mode-selector-wrapper {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .selector-label {
@@ -132,7 +132,7 @@ html, body {
     font-size: 13px;
     font-style: italic;
     color: #d1c7b7;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .segmented-control {
@@ -173,20 +173,20 @@ html, body {
 }
 
 /* ==========================
-   MAIN TIMER DISPLAY (Centered Fix)
+   MAIN TIMER DISPLAY (Strictly Centered Fix)
 ========================== */
 .timer-display-area {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 4px 0;
+    margin: 8px auto;
     width: 100%;
 }
 
 .circular-progress-wrapper {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 154px;
+    height: 154px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,6 +221,7 @@ html, body {
     align-items: center;
     text-align: center;
     z-index: 2;
+    width: 100%;
 }
 
 .time-text {
@@ -259,7 +260,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 6px 0;
+    margin: 4px 0;
 }
 
 .segment-track {
@@ -330,7 +331,7 @@ html, body {
     font-size: 10px;
     color: #d1c7b7;
     letter-spacing: 0.3px;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 /* ==========================
@@ -439,7 +440,7 @@ html, body {
 @media (max-width: 850px) {
     .card-frame {
         max-width: 100%;
-        padding: 12px;
+        padding: 16px;
     }
     .dashboard-container {
         grid-template-columns: 1fr;
