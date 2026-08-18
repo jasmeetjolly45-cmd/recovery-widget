@@ -26,7 +26,7 @@ html, body {
 }
 
 /* ==========================
-   FRAMED BACKGROUND CONTAINER (Thick Outer Border Fix)
+   FRAMED BACKGROUND CONTAINER
 ========================== */
 .card-frame {
     background-image: url('background.png');
@@ -34,10 +34,10 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 600px; /* Increased container width to allow plenty of frame space */
-    padding: 64px;    /* Dramatically increased padding so the outer beige border is thick and prominent */
-    border-radius: 32px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    max-width: 640px;
+    padding: 72px; /* Thick outer frame boundary */
+    border-radius: 36px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,10 +51,10 @@ html, body {
     width: 100%;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 18px 20px;
+    padding: 20px 22px;
     display: grid;
     grid-template-columns: 1.25fr 1fr;
-    gap: 18px;
+    gap: 20px;
 }
 
 /* ==========================
@@ -124,7 +124,7 @@ html, body {
 ========================== */
 .mode-selector-wrapper {
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .selector-label {
@@ -173,20 +173,20 @@ html, body {
 }
 
 /* ==========================
-   MAIN TIMER DISPLAY (Absolute Center Fix)
+   MAIN TIMER DISPLAY (Strictly Centered)
 ========================== */
 .timer-display-area {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 8px auto;
+    margin: 6px auto;
     width: 100%;
 }
 
 .circular-progress-wrapper {
     position: relative;
-    width: 154px;
-    height: 154px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -195,25 +195,25 @@ html, body {
 
 .progress-ring {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 154px;
-    height: 154px;
-    transform: translate(-50%, -50%) rotate(-90deg);
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
 }
 
 .progress-ring-circle-bg {
     fill: none;
     stroke: rgba(135, 150, 135, 0.15);
-    stroke-width: 3.5;
+    stroke-width: 4;
 }
 
 .progress-ring-circle {
     fill: none;
     stroke: #879b7d;
-    stroke-width: 4;
+    stroke-width: 4.5;
     stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s ease;
+    transition: stroke-dashoffset 0.1s linear;
 }
 
 .timer-inner-content {
@@ -223,12 +223,15 @@ html, body {
     text-align: center;
     z-index: 2;
     width: 100%;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .time-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #f8f4ec;
@@ -237,21 +240,21 @@ html, body {
 
 .instruction-main {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #f8f4ec;
     margin-top: 2px;
 }
 
 .instruction-sub {
-    font-size: 10px;
+    font-size: 9px;
     color: #d1c7b7;
     margin-top: 1px;
 }
 
 .center-mode-icon {
-    font-size: 12px;
-    margin-top: 3px;
+    font-size: 11px;
+    margin-top: 2px;
     opacity: 0.85;
 }
 
@@ -302,7 +305,7 @@ html, body {
 .action-btn-wrapper {
     display: flex;
     justify-content: center;
-    margin: 6px 0;
+    margin: 4px 0;
 }
 
 .primary-action-btn {
@@ -315,8 +318,8 @@ html, body {
     letter-spacing: 1.2px;
     text-transform: uppercase;
     width: 100%;
-    max-width: 200px;
-    padding: 8px;
+    max-width: 190px;
+    padding: 7px;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -342,7 +345,7 @@ html, body {
 .right-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .rec-card {
@@ -390,7 +393,7 @@ html, body {
 }
 
 .card-duration-section {
-    margin-top: 8px;
+    margin-top: 6px;
     padding-top: 6px;
     border-top: 1px solid rgba(135, 150, 135, 0.12);
 }
@@ -442,7 +445,7 @@ html, body {
 @media (max-width: 850px) {
     .card-frame {
         max-width: 100%;
-        padding: 20px;
+        padding: 16px;
     }
     .dashboard-container {
         grid-template-columns: 1fr;
