@@ -26,7 +26,7 @@ html, body {
 }
 
 /* ==========================
-   FRAMED BACKGROUND CONTAINER (Thicker Border Space)
+   FRAMED BACKGROUND CONTAINER (Thick Outer Border Fix)
 ========================== */
 .card-frame {
     background-image: url('background.png');
@@ -34,10 +34,10 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 560px; /* Expanded slightly to give outer border room */
-    padding: 44px;    /* Increased padding so beige frame is clearly visible */
-    border-radius: 24px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    max-width: 600px; /* Increased container width to allow plenty of frame space */
+    padding: 64px;    /* Dramatically increased padding so the outer beige border is thick and prominent */
+    border-radius: 32px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,7 +173,7 @@ html, body {
 }
 
 /* ==========================
-   MAIN TIMER DISPLAY (Strictly Centered Fix)
+   MAIN TIMER DISPLAY (Absolute Center Fix)
 ========================== */
 .timer-display-area {
     display: flex;
@@ -187,6 +187,7 @@ html, body {
     position: relative;
     width: 154px;
     height: 154px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,11 +195,11 @@ html, body {
 
 .progress-ring {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
+    top: 50%;
+    left: 50%;
+    width: 154px;
+    height: 154px;
+    transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .progress-ring-circle-bg {
@@ -222,6 +223,7 @@ html, body {
     text-align: center;
     z-index: 2;
     width: 100%;
+    position: relative;
 }
 
 .time-text {
@@ -440,7 +442,7 @@ html, body {
 @media (max-width: 850px) {
     .card-frame {
         max-width: 100%;
-        padding: 16px;
+        padding: 20px;
     }
     .dashboard-container {
         grid-template-columns: 1fr;
