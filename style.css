@@ -8,15 +8,17 @@
 }
 
 /* 
-   Notion Embed Background Sync & Mobile Viewport Fix:
-   Forces the body to respect mobile device screen bounds cleanly.
+   Notion Embed Background Sync & Mobile Fix:
+   Using height: auto and min-height ensures Notion's mobile app 
+   doesn't artificially clip or cut off the top of the iframe.
 */
 html, body {
     background-color: #ffffff;
     width: 100%;
-    min-height: 100vh;
+    height: auto;
+    min-height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +35,7 @@ html, body {
 }
 
 /* ==========================
-   FRAMED BORDER CONTAINER (Fully Fluid for Mobile)
+   FRAMED BORDER CONTAINER
 ========================== */
 .card-frame {
     background-image: url('background.png');
@@ -41,9 +43,9 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    max-width: 480px;
-    padding: 22px; /* Thick, beautiful outer beige border frame */
-    border-radius: 28px;
+    max-width: 460px;
+    padding: 20px; /* Thick, beautiful outer beige border frame */
+    border-radius: 26px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
     display: flex;
     justify-content: center;
@@ -59,7 +61,7 @@ html, body {
     width: 100%;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 12px 14px;
+    padding: 12px;
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -71,7 +73,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 190px;
+    min-width: 180px;
 }
 
 .right-column {
@@ -79,7 +81,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    min-width: 180px;
+    min-width: 170px;
 }
 
 /* ==========================
@@ -88,12 +90,12 @@ html, body {
 .header-section {
     display: flex;
     align-items: flex-start;
-    gap: 7px;
+    gap: 6px;
 }
 
 .header-icon-circle {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background: rgba(135, 150, 135, 0.12);
     border: 1px solid rgba(135, 150, 135, 0.25);
@@ -112,7 +114,7 @@ html, body {
 
 .header-text-group h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.5px;
     color: #f8f4ec;
@@ -126,7 +128,7 @@ html, body {
 .subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 10px;
+    font-size: 9.5px;
     color: #d1c7b7;
     margin-top: 1px;
 }
@@ -135,7 +137,7 @@ html, body {
     width: 100%;
     height: 1px;
     background: rgba(135, 150, 135, 0.15);
-    margin: 5px 0;
+    margin: 4px 0;
 }
 
 /* ==========================
@@ -148,7 +150,7 @@ html, body {
 
 .selector-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 10.5px;
+    font-size: 10px;
     font-style: italic;
     color: #d1c7b7;
     margin-bottom: 2px;
@@ -157,10 +159,10 @@ html, body {
 .segmented-control {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 2px;
     background: rgba(10, 22, 14, 0.6);
     padding: 2px;
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid rgba(135, 150, 135, 0.2);
 }
 
@@ -169,7 +171,7 @@ html, body {
     border: 1px solid transparent;
     color: #f8f4ec;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 9px;
+    font-size: 8.5px;
     font-weight: 500;
     padding: 3px 2px;
     border-radius: 10px;
@@ -177,7 +179,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     transition: all 0.2s ease;
 }
 
@@ -204,8 +206,8 @@ html, body {
 
 .circular-progress-wrapper {
     position: relative;
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -216,8 +218,8 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
     transform: rotate(-90deg);
 }
 
@@ -250,7 +252,7 @@ html, body {
 
 .time-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #f8f4ec;
@@ -259,20 +261,20 @@ html, body {
 
 .instruction-main {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
     color: #f8f4ec;
     margin-top: 1px;
 }
 
 .instruction-sub {
-    font-size: 7px;
+    font-size: 6.5px;
     color: #d1c7b7;
     margin-top: 1px;
 }
 
 .center-mode-icon {
-    font-size: 8px;
+    font-size: 7.5px;
     margin-top: 1px;
     opacity: 0.85;
 }
@@ -294,7 +296,7 @@ html, body {
 }
 
 .progress-segment {
-    width: 7px;
+    width: 6px;
     height: 3px;
     background: rgba(135, 150, 135, 0.2);
     border-radius: 2px;
@@ -307,10 +309,10 @@ html, body {
 }
 
 .phase-labels {
-    font-size: 7.5px;
+    font-size: 7px;
     color: #d1c7b7;
     display: flex;
-    gap: 5px;
+    gap: 4px;
 }
 
 .phase-labels span.highlight {
@@ -332,14 +334,14 @@ html, body {
     color: #f8f4ec;
     border: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 9px;
+    font-size: 8.5px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     width: 100%;
-    max-width: 140px;
-    padding: 4.5px;
-    border-radius: 12px;
+    max-width: 130px;
+    padding: 4px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease;
@@ -352,7 +354,7 @@ html, body {
 
 .footer-motivation {
     text-align: center;
-    font-size: 8px;
+    font-size: 7.5px;
     color: #d1c7b7;
     letter-spacing: 0.3px;
     margin-top: 1px;
@@ -364,8 +366,8 @@ html, body {
 .rec-card {
     background: rgba(18, 38, 25, 0.65);
     border: 1px solid rgba(135, 150, 135, 0.18);
-    border-radius: 10px;
-    padding: 7px 10px;
+    border-radius: 9px;
+    padding: 6px 8px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -382,37 +384,37 @@ html, body {
 .card-header-row {
     display: flex;
     align-items: flex-start;
-    gap: 6px;
+    gap: 5px;
 }
 
 .card-icon {
-    font-size: 11px;
+    font-size: 10px;
     padding-top: 1px;
 }
 
 .card-title-group h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
     letter-spacing: 0.8px;
     color: #f8f4ec;
 }
 
 .card-title-group p {
-    font-size: 8.5px;
+    font-size: 8px;
     color: #d1c7b7;
     line-height: 1.2;
     margin-top: 1px;
 }
 
 .card-duration-section {
-    margin-top: 4px;
-    padding-top: 4px;
+    margin-top: 3px;
+    padding-top: 3px;
     border-top: 1px solid rgba(135, 150, 135, 0.12);
 }
 
 .duration-label {
-    font-size: 7px;
+    font-size: 6.5px;
     font-weight: 700;
     letter-spacing: 1.2px;
     color: #a3b899;
@@ -423,7 +425,7 @@ html, body {
 .duration-btns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 2px;
 }
 
 .dur-btn {
@@ -431,10 +433,10 @@ html, body {
     border: 1px solid rgba(135, 150, 135, 0.15);
     color: #f8f4ec;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 7.5px;
+    font-size: 7px;
     font-weight: 500;
-    padding: 3px;
-    border-radius: 5px;
+    padding: 2.5px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -453,18 +455,18 @@ html, body {
 }
 
 /* ==========================
-   RESPONSIVE AUTO-STACK (Forced Mobile & Column Safety)
+   RESPONSIVE AUTO-STACK (Mobile & Column View)
 ========================== */
 @media (max-width: 900px) {
     html, body {
-        padding: 4px;
+        padding: 0;
         align-items: flex-start;
     }
     .card-frame {
         max-width: 100% !important;
         width: 100% !important;
-        padding: 10px !important;
-        border-radius: 20px;
+        padding: 12px !important;
+        border-radius: 18px;
     }
     .dashboard-container {
         flex-direction: column !important;
