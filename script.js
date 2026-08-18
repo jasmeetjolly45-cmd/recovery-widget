@@ -26,7 +26,7 @@ const phaseProgressSection = document.getElementById('phaseProgressSection');
 const segmentTrack = document.getElementById('segmentTrack');
 const phaseLabels = document.getElementById('phaseLabels');
 
-const CIRCLE_CIRCUMFERENCE = 326.72; // 2 * pi * 52
+const CIRCLE_CIRCUMFERENCE = 276.46; // 2 * pi * 44
 
 function init() {
     progressRing.style.strokeDasharray = CIRCLE_CIRCUMFERENCE;
